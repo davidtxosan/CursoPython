@@ -1,0 +1,11 @@
+numero1 = int(input("introduce el primer número: "))
+numero2 = int(input("introduce el segundo número: "))
+
+print("###### SUMA ######")
+print(f"la suma de {numero1} y {numero2} es: {numero1+numero2}")
+print("###### RESTA ######")
+print(f"la resta de {numero1} y {numero2} es: {numero1-numero2}")
+print("###### MULTIPLICACIÓN ######")
+print(f"la multiplicación de {numero1} y {numero2} es: {numero1*numero2}")
+print("###### DIVISIÓN ######")
+print(f"la división de {numero1} y {numero2} es: {numero1/numero2}")
