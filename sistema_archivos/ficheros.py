@@ -30,10 +30,22 @@ archivo_lectura.close()
 for frase in lista:
     lista_frase=frase.split()
     print(lista_frase)
-
+"""
 #copiar un archivo
 ruta_original =str(pathlib.Path(__file__).parent) + "/fichero_texto.txt"
 ruta_destino =str(pathlib.Path(__file__).parent) + "/fichero_textCopia.txt"
 ruta_alternativa ="./modulos/fichero_texto.txt"
 
 shutil.copyfile(ruta_original, ruta_destino)
+
+#mover o renombrar un fichero
+
+ruta_original =str(pathlib.Path(__file__).parent) + "/fichero_textCopia.txt"
+ruta_destino =str(pathlib.Path(__file__).parent) + "/fichero_copiado_NUEVO.txt"
+
+shutil.move(ruta_original, ruta_destino)
+"""
+#eliminar archivos
+import os
+ruta_destino =str(pathlib.Path(__file__).parent) + "/fichero_copiado_NUEVO.txt"
+os.remove(ruta_destino)
