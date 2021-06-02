@@ -1,1 +1,0 @@
-print(f"\n no se ha guardado la nota, lo siento {}")

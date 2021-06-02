@@ -1,47 +1,47 @@
-from usuarios import usuario as modelo
-from ..notas import acciones 
+import usuarios.usuario as modelo
+import notas.acciones
+
 
 class Acciones:
 
-    def Registro(self):
+    def registro(self):
 
         print("\nOk! Vamos a registrarte en el sistema...")
 
         nombre = input("¿Cual es tu nombre? : ")
-        Apellidos = input("¿Y tus Apellidos? : ")
+        apellidos = input("¿Y tus Apellidos? : ")
         email = input("Introduce tu email : ")
         passwd = input("Introduce tu contraseña: ")
 
-        usuario = modelo.Cliente(nombre, Apellidos, email, passwd)
-        registro = Cliente.registrar()
-                
+        usuario = modelo.Usuario(nombre, apellidos, email, passwd)
+        registro = usuario.registrar()
+
         if registro[0] >= 1:
-            print(f"Perfecto {registro[1].nombre} te has registrado con el email {registro[1].email}" )
+            print(f"Perfecto {registro[1].nombre} te has registrado con el email {registro[1].email}")
         else:
             print("\nno te has registrado correctamente")
-        
 
-    def Login(self):
+    def login(self):
 
         print("\nintroduce tu mail y contraseña")
 
         try:
-            email =  input("Introduce tu email : ")
+            email = input("Introduce tu email : ")
             passwd = input("Introduce tu contraseña: ")
 
-            usuario = modelo.Cliente('', '', email, passwd)
+            usuario = modelo.Usuario('', '', email, passwd)
             login = usuario.identificar()
 
             if email == login[3]:
                 print(f"Bienvenido  {login[1]}, te has registrado en el sistema el {login[5]}")
-                self.proximasAcciones(login)
+                self.proximas_acciones(login)
+
         except Exception as e:
-            #print(type(e))
-            #print(type(e).__name__)
+            print(type(e))
+            print(type(e).__name__)
             print(f"Login incorrecto.Intentalo de nuevo.")
 
-    def proximasAcciones(self, usuario):
-
+    def proximas_acciones(self, usuario):
 
         print("""
         
@@ -54,25 +54,20 @@ class Acciones:
         """)
 
         accion = input("¿Qué quieres hacer?")
-        hazEl = acciones.Acciones()
+        hazEl = notas.acciones.Acciones()
 
         if accion == "crear":
-            print("vamos a crear una nota")
             hazEl.crear(usuario)
-            self.proximasAcciones(usuario)
+            self.proximas_acciones(usuario)
 
         if accion == "mostrar":
-            print("vamos a mostrar una nota")
-            self.proximasAcciones(usuario)
+            hazEl.mostrar(usuario)
+            self.proximas_acciones(usuario)
 
         if accion == "eliminar":
-            print("vamos a eliminar una nota")
-            self.proximasAcciones(usuario)
-            
+            hazEl.borrar(usuario)
+            self.proximas_acciones(usuario)
+
         if accion == "salir":
             print(f"\nHasta pronto {usuario[1]}")
             exit()
-
-
-
-
