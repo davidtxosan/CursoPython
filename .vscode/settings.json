@@ -1,4 +1,7 @@
 {
-    "python.linting.enabled": true,
-    "python.pythonPath": "c:\\Program Files\\Python39\\python.exe"
+    "python.linting.enabled": false,
+    "python.pythonPath": "c:\\Program Files\\Python39\\python.exe",
+    "python.globalModuleInstallation": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.banditEnabled": true
 }
